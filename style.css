@@ -14,12 +14,18 @@
     box-sizing: border-box;
 }
 
+html {
+    height: 100%;
+    overflow: hidden; /* No scroll on single-page hero */
+}
+
 body {
+    height: 100%;
     background-color: var(--bg-white);
     color: var(--text-black);
     font-family: var(--font-body);
     font-weight: 400;
-    overflow-x: hidden;
+    overflow: hidden; /* Single page — no scroll */
     line-height: 1.4;
     -webkit-font-smoothing: antialiased;
 }
@@ -204,6 +210,11 @@ a {
 }
 
 /* Hero Section */
+.smooth-content {
+    height: 100%;
+    overflow: hidden;
+}
+
 .hero-section {
     height: 100vh;
     height: calc(var(--vh, 1vh) * 100);

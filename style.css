@@ -150,14 +150,16 @@ a {
 }
 
 /* Header */
+/* Site Header — hidden until loader done */
 .site-header {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    padding: 1.5rem 0;
+    padding: 2.5rem 0;
     /* Reduced padding for cleaner look */
     z-index: 1000;
+    opacity: 0; /* revealed by JS after loader */
 }
 
 .nav-container {
@@ -200,6 +202,8 @@ a {
     align-items: center;
     gap: 0.6rem;
     color: var(--text-black);
+    opacity: 0; /* revealed by JS after loader */
+    transform: translateY(100%); /* revealed by JS after loader */
 }
 
 .nav-item svg {
@@ -225,6 +229,7 @@ a {
     overflow: hidden;
 }
 
+/* Hero Heading — hidden until loader done */
 .hero-heading {
     font-family: var(--font-heading);
     font-size: clamp(2.1rem, 6.8vw, 5.1rem);
@@ -236,6 +241,8 @@ a {
 
 .reveal {
     display: inline-block;
+    opacity: 0; /* revealed by JS after loader */
+    transform: translateY(100%);
 }
 
 /* Marquee */
@@ -247,10 +254,9 @@ a {
     border-top: 1px solid var(--border-light);
     border-bottom: 1px solid var(--border-light);
     padding: 1.5rem 0;
-    /* background: rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(8px); */
     overflow: hidden;
-
+    opacity: 0; /* revealed by JS after loader */
+    transform: translateY(80px);
 }
 
 .marquee-inner {

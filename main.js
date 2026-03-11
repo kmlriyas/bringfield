@@ -82,14 +82,39 @@ function initLoader() {
         .to(curtainRight, { xPercent:  100, duration: 1.2, ease: 'expo.inOut' }, '<');
 }
 
-// 4. Hero Animations (fired after curtain completes)
+// 4. Hero Animations (fired ONLY after curtain completes)
 function initHeroAnimations() {
     const tl = gsap.timeline();
 
-    tl.from('.header-logo', { y: -50, opacity: 0, duration: 1.2, ease: 'power4.out' })
-        .from('.nav-item', { y: -20, opacity: 0, duration: 0.8, stagger: 0.1, ease: 'power3.out' }, '-=0.8')
-        .from('.reveal', { y: '100%', opacity: 0, duration: 1.5, stagger: 0.2, ease: 'power4.out' }, '-=1')
-        .from('.hero-marquee', { opacity: 0, y: 80, duration: 1.2, ease: 'power3.out' }, '-=1.2');
+    // Site header fades in (opacity 0 → 1 set in CSS)
+    tl.to('.site-header', {
+        opacity: 1,
+        duration: 0.8,
+        ease: 'power3.out'
+    })
+    // Nav items slide down into place (translateY(100%) → 0, opacity 0 → 1 set in CSS)
+    .to('.nav-item', {
+        opacity: 1,
+        y: 0,
+        duration: 0.7,
+        stagger: 0.1,
+        ease: 'power3.out'
+    }, '-=0.5')
+    // Hero heading reveals slide up (translateY(100%) → 0, opacity 0 → 1 set in CSS)
+    .to('.reveal', {
+        opacity: 1,
+        y: 0,
+        duration: 1.4,
+        stagger: 0.2,
+        ease: 'power4.out'
+    }, '-=0.6')
+    // Marquee slides up from bottom (translateY(80px) → 0, opacity 0 → 1 set in CSS)
+    .to('.hero-marquee', {
+        opacity: 1,
+        y: 0,
+        duration: 1.1,
+        ease: 'power3.out'
+    }, '-=1.2');
 }
 
 // 5. Smooth Scroll for Anchors

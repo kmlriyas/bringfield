@@ -36,6 +36,60 @@ a {
     padding: 0 4vw;
 }
 
+/* ================================
+   Curtain Loader
+   ================================ */
+.loader {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    pointer-events: all; /* Block clicks on content while loader is visible */
+}
+
+.curtain {
+    position: absolute;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    background: #0a0a0a;
+    will-change: transform;
+}
+
+.curtain-left {
+    left: 0;
+    width: calc(50% + 1px); /* 1px overlap to prevent center seam */
+}
+
+.curtain-right {
+    right: 0;
+    width: calc(50% + 1px); /* 1px overlap to prevent center seam */
+}
+
+.loader-content {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    z-index: 1;
+}
+
+.loader-logo {
+    height: 48px;
+    width: auto;
+    filter: invert(1);
+    opacity: 0;
+}
+
+.loader-line {
+    width: 0;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.4);
+    max-width: 180px;
+}
+
 /* Custom Cursor */
 .cursor {
     width: 6px;
@@ -251,5 +305,16 @@ a {
 
     .hero-heading {
         font-size: 2.55rem;
+    }
+}
+
+/* Loader mobile tweaks */
+@media (max-width: 768px) {
+    .loader-logo {
+        height: 36px;
+    }
+
+    .loader-line {
+        max-width: 120px;
     }
 }
